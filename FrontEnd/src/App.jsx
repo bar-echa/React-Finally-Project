@@ -6,14 +6,19 @@ import Reservation from "./Pages/Reservation";
 import OrderPage from "./Pages/Order-page";
 
 
-function App(){
-  return(
 
-    <>
-    <MenuPage/>
-    <OrderPage/>
-    <Reservation/>
-    </>
-  )
+
+
+function App() {
+  const [page, setPage] = useState("menu");
+
+  return (
+    <div>
+      {page === "menu" && <MenuPage setPage={setPage} />}
+      {page === "order" && <OrderPage setPage={setPage} />}
+      {page === "reservation" && <Reservation setPage={setPage} />}
+    </div>
+  );
 }
+
 export default App;
